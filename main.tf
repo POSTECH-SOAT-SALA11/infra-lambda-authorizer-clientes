@@ -17,7 +17,7 @@ resource "aws_iam_role" "lambda_exec_role" {
   })
 
   inline_policy {
-    name   = "lambda-s3-access"
+    name = "lambda-s3-access"
     policy = jsonencode({
       Version = "2012-10-17"
       Statement = [{
