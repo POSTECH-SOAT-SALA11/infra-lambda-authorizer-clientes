@@ -19,3 +19,14 @@ variable "lambda_role_name" {
   type        = string
   default     = "lambda_auth_exec_role"
 }
+
+variable "s3_backend_bucket_name" {
+  description = "Nome do bucket S3 para armazenar o estado do Terraform"
+  type        = string
+}
+
+variable "aws_region" {
+  description = "Região da AWS"
+  type        = string
+  default     = "sa-east-1"
+}
