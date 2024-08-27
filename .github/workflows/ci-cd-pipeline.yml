@@ -44,7 +44,6 @@ jobs:
   apply:
     needs: terraform
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' # Executa apenas se acionado manualmente
 
     steps:
       - name: Checkout code
