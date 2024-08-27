@@ -2,7 +2,7 @@ provider "aws" {
   region = "sa-east-1"
 }
 
-resource "aws_iam_role" "lambda_exec_role" {
+resource "aws_iam_role" "lambda_auth_exec_role" {
   name = var.lambda_role_name
 
   assume_role_policy = jsonencode({
@@ -40,5 +40,5 @@ resource "aws_lambda_function" "lambda_authorizer" {
   s3_key        = var.lambda_s3_key
   handler       = "main.handler"
   runtime       = "python3.8"
-  role          = aws_iam_role.lambda_exec_role.arn
+  role          = aws_iam_role.lambda_auth_exec_role.arn
 }
