@@ -20,19 +20,38 @@ resource "aws_iam_role" "lambda_auth_exec_role" {
     name = "lambda-s3-access"
     policy = jsonencode({
       Version = "2012-10-17"
-      Statement = [{
-        Action = [
-          "s3:GetObject",
-          "logs:CreateLogGroup",
-          "logs:CreateLogStream",
-          "logs:PutLogEvents"
-        ]
-        Effect   = "Allow"
-        Resource = "*"
-      }]
+      Statement = [
+        {
+          Action = [
+            "s3:GetObject",
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+          ]
+          Effect   = "Allow"
+          Resource = "*"
+        },
+        {
+          Action = [
+            "cognito-idp:ListUsers",
+            "cognito-idp:AdminGetUser",
+            "cognito-idp:GetUser"
+          ]
+          Effect   = "Allow"
+          Resource = "*"
+        },
+        {
+          Action = [
+            "execute-api:ManageConnections"
+          ]
+          Effect   = "Allow"
+          Resource = "*"
+        }
+      ]
     })
   }
 }
+
 
 resource "aws_lambda_function" "lambda_auth" {
   function_name = var.lambda_function_name
@@ -41,4 +60,5 @@ resource "aws_lambda_function" "lambda_auth" {
   handler       = "main.handler"
   runtime       = "python3.8"
   role          = aws_iam_role.lambda_auth_exec_role.arn
+  timeout       = 60
 }
