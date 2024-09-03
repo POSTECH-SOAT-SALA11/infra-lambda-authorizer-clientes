@@ -52,7 +52,7 @@ resource "aws_iam_role" "lambda_auth_exec_role" {
   }
 }
 
-
+#teste
 resource "aws_lambda_function" "lambda_auth" {
   function_name = var.lambda_function_name
   s3_bucket     = var.s3_bucket_name
