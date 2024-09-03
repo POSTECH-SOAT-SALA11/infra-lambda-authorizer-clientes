@@ -1,7 +1,7 @@
 variable "lambda_function_name" {
   description = "Nome da função Lambda"
   type        = string
-  default     = "lambda_authorizer"
+  default     = "lambda_authorizer_clientes"
 }
 
 variable "s3_bucket_name" {
