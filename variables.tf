@@ -17,7 +17,7 @@ variable "lambda_s3_key" {
 variable "lambda_role_name" {
   description = "Nome da role IAM para a função Lambda"
   type        = string
-  default     = "lambda_auth_exec_role"
+  default     = "lambda_auth_clientes_exec_role"
 }
 
 variable "s3_backend_bucket_name" {
