@@ -1,6 +1,6 @@
 lambda_function_name   = "lambda_authorizer_clientes"
-s3_bucket_name         = "fonte-codigo-lambda-authorizer"
+s3_bucket_name         = "fonte-lambda-authorizer"
 lambda_s3_key          = "lambda_clientes.zip"
 lambda_role_name       = "lambda_auth_clientes_exec_role"
-s3_backend_bucket_name = "tfstate-6soat"
+s3_backend_bucket_name = "6soat-tfstate"
 aws_region             = "sa-east-1"
